@@ -13,12 +13,12 @@ namespace Final_Midterm
         public String Actor { get; set; }
         public String Director { get; set; }
 
-        public Movies (string MovieName, string Genre, string Actor, string Director)
+        public Movies (string movieName, string genre, string actor, string director)
         {
-            this.MovieName = MovieName;
-            this.Genre = Genre;
-            this.Actor=Actor;
-            this.Director = Director;
+            this.MovieName = movieName;
+            this.Genre = genre;
+            this.Actor=actor;
+            this.Director = director;
         }
     }
 }

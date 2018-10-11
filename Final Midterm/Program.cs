@@ -18,6 +18,8 @@ namespace Final_Midterm
             movies.Add(new Movies("Avengers", "Action", "Robert Downery Jr", "Josh Whedon"));
             movies.Add(new Movies("Antman", "Action", "Paul Rudd", "Josh Whedan"));
 
+            Movies movies2 = new Movies();
+
             Console.WriteLine("Welcome to Team 3 Movie Library"); 
             string searchBy = "";
             string searchFor = "";
@@ -46,16 +48,17 @@ namespace Final_Midterm
                         switch (searchBy)
                         {
                             case "title":
-                                Console.WriteLine("what is the title?");
-                                searchFor = Console.ReadLine();
+                                // Console.WriteLine("what is the title?");
+                                //  searchFor = Console.ReadLine();
 
-                                foreach(var m in movies)
-                                {
-                                    if (m.MovieName.Contains(searchFor))
-                                        searchMovies.Add(m);
-                                }
+                                //  foreach(var m in movies)
+                                //  {
+                                //     if (m.MovieName.Contains(searchFor))
+                                // searchMovies.Add(m);
+                                // }
+                                var titles= movies2.SearchForTitle(movies);
                                 Console.WriteLine();
-                                foreach (var m in searchMovies) Console.WriteLine(m);
+                                foreach (var m in titles) Console.WriteLine(m);
 
                                 break;
                             case "genre": Console.WriteLine("What is the genre?");

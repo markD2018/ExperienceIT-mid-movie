@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_Midterm
 {
-    class Movies
+    public class Movies
     {
         public string MovieName { get; set; }
         public string Genre { get; set; }
@@ -24,6 +24,41 @@ namespace Final_Midterm
         public override string ToString()
         {
             return MovieName + " - " + Genre + " - " + Actor + " - " + Director;
+        }
+        public Movies()
+        {
+            
+        }
+        public List<Movies> SearchForTitle(List<Movies> movies)
+        {
+
+            //List<Movies> movies = new List<Movies>();
+
+            List<Movies> searchMovies = new List<Movies>();
+            string searchFor = "";
+
+            Console.WriteLine("what is the title?");
+
+            searchFor = Console.ReadLine();
+            
+            foreach (var m in movies)
+            {
+                if (m.MovieName.Contains(searchFor))
+                    searchMovies.Add(m);
+            }
+            Console.WriteLine();
+
+
+            return searchMovies;
+            //foreach (var m in searchMovies)
+            //{
+              //  x= m.MovieName + "";
+            //}
+            // Console.WriteLine(m);
+            //
+
+            //return "this is the list of titles";
+
         }
 
         //SearchMovieName(string movieName){}

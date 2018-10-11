@@ -8,17 +8,29 @@ namespace Final_Midterm
 {
     class Movies
     {
-        public String MovieName { get; set; }
-        public String Genre { get; set; }
-        public String Actor { get; set; }
-        public String Director { get; set; }
+        public string MovieName { get; set; }
+        public string Genre { get; set; }
+        public string Actor { get; set; }
+        public string Director { get; set; }
+        //public string Year { get; set; }
 
-        public Movies (string movieName, string genre, string actor, string director)
+        public Movies(string movieName, string genre, string actor, string director)
         {
             this.MovieName = movieName;
             this.Genre = genre;
-            this.Actor=actor;
+            this.Actor = actor;
             this.Director = director;
         }
+
+        //SearchMovieName(string movieName){}
+        
+        //SearchGenre(string genre){}
+        
+        //SearchActor(string actor){}
+        
+        //SearchDirector(string director){}
+
+
+
     }
 }

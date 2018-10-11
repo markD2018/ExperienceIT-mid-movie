@@ -31,9 +31,6 @@ namespace Final_Midterm
         }
         public List<Movies> SearchForTitle(List<Movies> movies)
         {
-
-            //List<Movies> movies = new List<Movies>();
-
             List<Movies> searchMovies = new List<Movies>();
             string searchFor = "";
 
@@ -50,24 +47,31 @@ namespace Final_Midterm
 
 
             return searchMovies;
-            //foreach (var m in searchMovies)
-            //{
-              //  x= m.MovieName + "";
-            //}
-            // Console.WriteLine(m);
-            //
-
-            //return "this is the list of titles";
+            
 
         }
 
-        //SearchMovieName(string movieName){}
+        public List<Movies> SearchByGenre(List<Movies> movies)
+        {
+            List<Movies> searchMovies = new List<Movies>();
+            string searchForGenre = "";
 
-        //SearchGenre(string genre){}
+            Console.WriteLine("what is the genre?");
 
-        //SearchActor(string actor){}
+            searchForGenre = Console.ReadLine();
 
-        //SearchDirector(string director){}
+            foreach (var m in movies)
+            {
+                if (m.Genre.Contains(searchForGenre))
+                    searchMovies.Add(m);
+            }
+            Console.WriteLine();
+
+
+            return searchMovies;
+
+
+        }
 
 
 

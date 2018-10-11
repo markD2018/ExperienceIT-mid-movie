@@ -48,33 +48,27 @@ namespace Final_Midterm
                         switch (searchBy)
                         {
                             case "title":
-                                // Console.WriteLine("what is the title?");
-                                //  searchFor = Console.ReadLine();
-
-                                //  foreach(var m in movies)
-                                //  {
-                                //     if (m.MovieName.Contains(searchFor))
-                                // searchMovies.Add(m);
-                                // }
                                 var titles= movies2.SearchForTitle(movies);
                                 Console.WriteLine();
-                                foreach (var m in titles) Console.WriteLine(m);
+                                foreach (var m in titles)
+                                {
+                                    Console.WriteLine(m);
+                                }
 
                                 break;
-                            case "genre": Console.WriteLine("What is the genre?");
-                                searchFor = Console.ReadLine();
-                                foreach (var m in movies)
-                                {
-                                    if (m.Genre.Contains(searchFor))
-                                        searchMovies.Add(m);
-                                }
+
+                            case "genre":
+                                var genres = movies2.SearchByGenre(movies);
                                 Console.WriteLine();
-                                foreach (var m in searchMovies) Console.WriteLine(m);
+                                foreach(var n in genres)
+                                {
+                                    Console.WriteLine(n);
+                                }
                                 break;
                             case "actor":
                                 Console.WriteLine("Who is the lead actor?");
                                 searchFor = Console.ReadLine();
-                                //movies.SearchActor(searchFor);
+                               
                                 break;
                             case "director":
                                 Console.WriteLine("Who is the Director?");

@@ -12,17 +12,19 @@ namespace Final_Midterm
         {
 
             List<Movies> movies = new List<Movies>();
-            movies.Add(new Movies("Titanic", "Romance", "Leo DiCaprio", "James"));
+            movies.Add(new Movies("Titanic", "Romance", "Leo DiCaprio", "James Cameron"));
             movies.Add(new Movies("Smallfoot", "Comedy", "Yetie", "IDK"));
             movies.Add(new Movies("Avatar", "Action", "Blank", "James Cameron"));
             movies.Add(new Movies("Avengers", "Action", "Robert Downery Jr", "Josh Whedon"));
-            movies.Add(new Movies("Antman", "Antman", "Paul Rudd", "Josh Whedan"));
+            movies.Add(new Movies("Antman", "Action", "Paul Rudd", "Josh Whedan"));
 
             Console.WriteLine("Welcome to Team 3 Movie Library"); 
             string searchBy = "";
             string searchFor = "";
             string addmovie;
             string[] addMovie = new string[4];
+
+            List<Movies> searchMovies = new List<Movies>();
 
             Boolean run = true;
 
@@ -35,7 +37,7 @@ namespace Final_Midterm
                 {
                     case "1":
                         Console.WriteLine("\nTitle \t Genre \t Lead Actor \t Director");
-                        foreach (var m in movies) Console.WriteLine("{0}, {1}, {2}, {3}", m.MovieName, m.Genre, m.Actor, m.Director);
+                        foreach (var m in movies) Console.WriteLine(m); //"{0}  {1}  {2}  {3}", m.MovieName, m.Genre, m.Actor, m.Director);
                         break;
                     case "2":
                         Console.WriteLine("How would you like to search? Title, Genre, Actor, Director, go back");
@@ -46,11 +48,25 @@ namespace Final_Midterm
                             case "title":
                                 Console.WriteLine("what is the title?");
                                 searchFor = Console.ReadLine();
-                                //movies.SearchMovieName(searchFor);
+
+                                foreach(var m in movies)
+                                {
+                                    if (m.MovieName.Contains(searchFor))
+                                        searchMovies.Add(m);
+                                }
+                                Console.WriteLine();
+                                foreach (var m in searchMovies) Console.WriteLine(m);
+
                                 break;
                             case "genre": Console.WriteLine("What is the genre?");
                                 searchFor = Console.ReadLine();
-                                //movies.SearchGenre(searchFor);
+                                foreach (var m in movies)
+                                {
+                                    if (m.Genre.Contains(searchFor))
+                                        searchMovies.Add(m);
+                                }
+                                Console.WriteLine();
+                                foreach (var m in searchMovies) Console.WriteLine(m);
                                 break;
                             case "actor":
                                 Console.WriteLine("Who is the lead actor?");

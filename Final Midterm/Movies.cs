@@ -16,18 +16,22 @@ namespace Final_Midterm
 
         public Movies(string movieName, string genre, string actor, string director)
         {
-            this.MovieName = movieName;
-            this.Genre = genre;
-            this.Actor = actor;
-            this.Director = director;
+            MovieName = movieName;
+            Genre = genre;
+            Actor = actor;
+            Director = director;
+        }
+        public override string ToString()
+        {
+            return MovieName + " - " + Genre + " - " + Actor + " - " + Director;
         }
 
         //SearchMovieName(string movieName){}
-        
+
         //SearchGenre(string genre){}
-        
+
         //SearchActor(string actor){}
-        
+
         //SearchDirector(string director){}
 
 

@@ -22,7 +22,6 @@ namespace Final_Midterm
 
             Console.WriteLine("Welcome to Team 3 Movie Library"); 
             string searchBy = "";
-            string searchFor = "";
             string addmovie;
             string[] addMovie = new string[4];
 
@@ -48,7 +47,7 @@ namespace Final_Midterm
                         switch (searchBy)
                         {
                             case "title":
-                                var titles= movies2.SearchForTitle(movies);
+                                var titles= movies2.SearchByTitle(movies);
                                 Console.WriteLine();
                                 foreach (var m in titles)
                                 {
@@ -66,14 +65,20 @@ namespace Final_Midterm
                                 }
                                 break;
                             case "actor":
-                                Console.WriteLine("Who is the lead actor?");
-                                searchFor = Console.ReadLine();
-                               
+                                var actors = movies2.SearchByActor(movies);
+                                Console.WriteLine();
+                                foreach (var a in actors)
+                                {
+                                    Console.WriteLine(a);
+                                }
                                 break;
                             case "director":
-                                Console.WriteLine("Who is the Director?");
-                                searchFor = Console.ReadLine();
-                                //movies.SearchDirector(searchFor);
+                                var director = movies2.SearchByDirector(movies);
+                                Console.WriteLine();
+                                foreach (var d in director)
+                                {
+                                    Console.WriteLine(d);
+                                }
                                 break;
                             default:
                                 break;

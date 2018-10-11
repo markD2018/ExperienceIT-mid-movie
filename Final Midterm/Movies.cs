@@ -29,26 +29,19 @@ namespace Final_Midterm
         {
             
         }
-        public List<Movies> SearchForTitle(List<Movies> movies)
+        public List<Movies> SearchByTitle(List<Movies> movies)
         {
             List<Movies> searchMovies = new List<Movies>();
-            string searchFor = "";
-
+            string searchForTitle = "";
             Console.WriteLine("what is the title?");
-
-            searchFor = Console.ReadLine();
-            
+            searchForTitle = Console.ReadLine();
             foreach (var m in movies)
             {
-                if (m.MovieName.Contains(searchFor))
+                if (m.MovieName.Contains(searchForTitle))
                     searchMovies.Add(m);
             }
             Console.WriteLine();
-
-
             return searchMovies;
-            
-
         }
 
         public List<Movies> SearchByGenre(List<Movies> movies)
@@ -57,22 +50,46 @@ namespace Final_Midterm
             string searchForGenre = "";
 
             Console.WriteLine("what is the genre?");
-
             searchForGenre = Console.ReadLine();
-
             foreach (var m in movies)
             {
                 if (m.Genre.Contains(searchForGenre))
                     searchMovies.Add(m);
             }
             Console.WriteLine();
-
-
             return searchMovies;
-
-
         }
 
+        public List<Movies> SearchByActor(List<Movies> movies)
+        {
+            List<Movies> searchMovies = new List<Movies>();
+            string searchForActor = "";
+
+            Console.WriteLine("Who is the main actor?");
+            searchForActor = Console.ReadLine();
+            foreach (var m in movies)
+            {
+                if (m.Actor.Contains(searchForActor))
+                    searchMovies.Add(m);
+            }
+            Console.WriteLine();
+            return searchMovies;
+        }
+        public List<Movies> SearchByDirector(List<Movies> movies)
+        {
+            List<Movies> searchMovies = new List<Movies>();
+            string searchForDirector = "";
+
+            Console.WriteLine("Who directed the movie?");
+            searchForDirector = Console.ReadLine();
+            foreach (var m in movies)
+            {
+                if (m.Director.Contains(searchForDirector))
+                    searchMovies.Add(m);
+            }
+            Console.WriteLine();
+            return searchMovies;
+        }
 
 
     }

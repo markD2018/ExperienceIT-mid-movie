@@ -27,7 +27,16 @@ namespace Final_Midterm
             //string path = @"C:\Users\mlmda\source\repos\ExperienceIT-mid-movie\Final Midterm\nameFile.txt";
 
             //  path based on Git Location
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "\\nameFile.txt");
+
+            //string path = Path.Combine(Directory.GetCurrentDirectory(), "\\nameFile.txt");
+
+            string subfoldername = "Final Midterm";
+            string filename = "nameFile.txt";
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, subfoldername, filename);
+
+            Console.WriteLine(path);
+
+            Console.ReadKey();
             string line;
             string[] tempMovie = new string[4];
 
@@ -141,6 +150,7 @@ namespace Final_Midterm
             //Close the file
             sw.Close();
 
+            Console.ReadKey(); 
         }
     }
 }

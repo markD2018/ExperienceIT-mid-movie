@@ -45,7 +45,7 @@ namespace Final_Midterm
             List<Movies> searchMovies = new List<Movies>();
             string searchForTitle = "";
             Console.WriteLine("what is the title?");
-            searchForTitle = Console.ReadLine();
+            searchForTitle = Console.ReadLine().ToUpper();
             foreach (var m in movies)
             {
                 if (m.MovieName.Contains(searchForTitle))
@@ -62,7 +62,7 @@ namespace Final_Midterm
             string searchForGenre = "";
 
             Console.WriteLine("what is the genre?");
-            searchForGenre = Console.ReadLine();
+            searchForGenre = Console.ReadLine().ToUpper();
             foreach (var m in movies)
             {
                 if (m.Genre.Contains(searchForGenre))
@@ -80,7 +80,7 @@ namespace Final_Midterm
             string searchForActor = "";
 
             Console.WriteLine("Who is the main actor?");
-            searchForActor = Console.ReadLine();
+            searchForActor = Console.ReadLine().ToUpper();
             foreach (var m in movies)
             {
                 if (m.Actor.Contains(searchForActor))
@@ -98,7 +98,7 @@ namespace Final_Midterm
             string searchForDirector = "";
 
             Console.WriteLine("Who directed the movie?");
-            searchForDirector = Console.ReadLine();
+            searchForDirector = Console.ReadLine().ToUpper();
             foreach (var m in movies)
             {
                 if (m.Director.Contains(searchForDirector))

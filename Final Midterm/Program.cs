@@ -23,30 +23,24 @@ namespace Final_Midterm
 
             //Populating movie from file
             List<Movies> movies = new List<Movies>();
-            // path based on local file
-            //string path = @"C:\Users\mlmda\source\repos\ExperienceIT-mid-movie\Final Midterm\nameFile.txt";
 
-            //  path based on Git Location
+            //  path based on Location
+            string path = Path.Combine(Environment.CurrentDirectory, @"..\..\nameFile.txt");
 
-            //string path = Path.Combine(Directory.GetCurrentDirectory(), "\\nameFile.txt");
+            //Console.WriteLine(path); Console.ReadKey();
 
-            string subfoldername = "Final Midterm";
-            string filename = "nameFile.txt";
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, subfoldername, filename);
-
-            Console.WriteLine(path);
-
-            Console.ReadKey();
             string line;
             string[] tempMovie = new string[4];
 
             StreamReader sr = new StreamReader(path);
-            line = sr.ReadLine();
+            line = sr.ReadLine().ToUpper();
             while (line != null)
             {
                 tempMovie = line.Split(',');
                 movies.Add(new Movies(tempMovie[0], tempMovie[1], tempMovie[2], tempMovie[3]));
                 line = sr.ReadLine();
+                if (line != null)
+                    line = line.ToUpper();
             }
             sr.Close();
 
@@ -76,12 +70,12 @@ namespace Final_Midterm
                         foreach (var m in movies) Console.WriteLine(m); //"{0}  {1}  {2}  {3}", m.MovieName, m.Genre, m.Actor, m.Director);
                         break;
                     case "2":
-                        Console.WriteLine("How would you like to search? Title, Genre, Actor, Director, go back");
-                        searchBy = Console.ReadLine().ToLower();
+                        Console.WriteLine("How would you like to search? Title, Genre, Actor, Director, go back, Exit program");
+                        searchBy = Console.ReadLine().ToUpper();
 
                         switch (searchBy)
                         {
-                            case "title":
+                            case "TITLE":
                                 var titles= movies2.SearchByTitle(movies);
                                 Console.WriteLine();
                                 foreach (var m in titles)
@@ -91,7 +85,7 @@ namespace Final_Midterm
 
                                 break;
 
-                            case "genre":
+                            case "GENRE":
                                 var genres = movies2.SearchByGenre(movies);
                                 Console.WriteLine();
                                 foreach(var n in genres)
@@ -99,7 +93,7 @@ namespace Final_Midterm
                                     Console.WriteLine(n);
                                 }
                                 break;
-                            case "actor":
+                            case "ACTOR":
                                 var actors = movies2.SearchByActor(movies);
                                 Console.WriteLine();
                                 foreach (var a in actors)
@@ -107,13 +101,16 @@ namespace Final_Midterm
                                     Console.WriteLine(a);
                                 }
                                 break;
-                            case "director":
+                            case "DIRECTOR":
                                 var director = movies2.SearchByDirector(movies);
                                 Console.WriteLine();
                                 foreach (var d in director)
                                 {
                                     Console.WriteLine(d);
                                 }
+                                break;
+                            case "EXIT":
+                                    run = false;
                                 break;
                             default:
                                 break;
@@ -122,7 +119,7 @@ namespace Final_Midterm
                     case "3":
                         Console.WriteLine("Write out: Title, Genre, Lead Actor, Director");
                         Console.WriteLine("Example: 'The Princess Bride, Adventure, Cary Elwes, Rob Reiner' ");
-                        addmovie = Console.ReadLine();
+                        addmovie = Console.ReadLine().ToUpper();
                         addMovie = addmovie.Split(',');
                         movies.Add(new Movies(addMovie[0], addMovie[1], addMovie[2], addMovie[3]));
                         break;
@@ -133,7 +130,7 @@ namespace Final_Midterm
                         i = Convert.ToInt32(Console.ReadLine());
                         movies.RemoveAt(i);
                         break;
-                    case "exit":
+                    case "EXIT":
                         run = false;
                         break;
                     

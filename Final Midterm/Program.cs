@@ -10,6 +10,7 @@ namespace Final_Midterm
     {
         static void Main(string[] args)
         {
+            // Initializing and Declaring  the list of Movies
 
             List<Movies> movies = new List<Movies>();
             movies.Add(new Movies("Titanic", "Romance", "Leo DiCaprio", "James Cameron"));
@@ -17,6 +18,8 @@ namespace Final_Midterm
             movies.Add(new Movies("Avatar", "Action", "Blank", "James Cameron"));
             movies.Add(new Movies("Avengers", "Action", "Robert Downery Jr", "Josh Whedon"));
             movies.Add(new Movies("Antman", "Action", "Paul Rudd", "Josh Whedan"));
+            
+            // Creating an object 
 
             Movies movies2 = new Movies();
 
@@ -34,6 +37,8 @@ namespace Final_Midterm
             {
                 Console.WriteLine("\nWould you like to: \n[1] Display movie list \n[2] search movies \n[3] Add movie \n[4] Remove Movie \nExit");
                 string directive = Console.ReadLine().ToLower();
+
+                // Implementing the Switch Case Statement
 
                 switch (directive)
                 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,17 +11,37 @@ namespace Final_Midterm
     {
         static void Main(string[] args)
         {
-            // Initializing and Declaring  the list of Movies
-
+            // Initializing and Declaring  the list of Movies Initial List for Testing
+            /*
             List<Movies> movies = new List<Movies>();
             movies.Add(new Movies("Titanic", "Romance", "Leo DiCaprio", "James Cameron"));
             movies.Add(new Movies("Smallfoot", "Comedy", "Yetie", "IDK"));
             movies.Add(new Movies("Avatar", "Action", "Blank", "James Cameron"));
             movies.Add(new Movies("Avengers", "Action", "Robert Downery Jr", "Josh Whedon"));
             movies.Add(new Movies("Antman", "Action", "Paul Rudd", "Josh Whedan"));
-            
-            // Creating an object 
+            */
 
+            //Populating movie from file
+            List<Movies> movies = new List<Movies>();
+            // path based on local file
+            //string path = @"C:\Users\mlmda\source\repos\ExperienceIT-mid-movie\Final Midterm\nameFile.txt";
+
+            //  path based on Git Location
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "\\nameFile.txt");
+            string line;
+            string[] tempMovie = new string[4];
+
+            StreamReader sr = new StreamReader(path);
+            line = sr.ReadLine();
+            while (line != null)
+            {
+                tempMovie = line.Split(',');
+                movies.Add(new Movies(tempMovie[0], tempMovie[1], tempMovie[2], tempMovie[3]));
+                line = sr.ReadLine();
+            }
+            sr.Close();
+
+            // Creating an object 
             Movies movies2 = new Movies();
 
             Console.WriteLine("Welcome to Team 3 Movie Library"); 
@@ -112,6 +133,13 @@ namespace Final_Midterm
                 if (directive == "exit")
                     run = false;
             }
+            StreamWriter sw = new StreamWriter(path);
+            foreach (var m in movies)
+            {
+                sw.WriteLine("{0},{1},{2},{3}", m.MovieName, m.Genre, m.Actor, m.Director);
+            }
+            //Close the file
+            sw.Close();
 
         }
     }

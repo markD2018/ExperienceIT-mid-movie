@@ -11,24 +11,11 @@ namespace Final_Midterm
     {
         static void Main(string[] args)
         {
-            // Initializing and Declaring  the list of Movies Initial List for Testing
-            /*
-            List<Movies> movies = new List<Movies>();
-            movies.Add(new Movies("Titanic", "Romance", "Leo DiCaprio", "James Cameron"));
-            movies.Add(new Movies("Smallfoot", "Comedy", "Yetie", "IDK"));
-            movies.Add(new Movies("Avatar", "Action", "Blank", "James Cameron"));
-            movies.Add(new Movies("Avengers", "Action", "Robert Downery Jr", "Josh Whedon"));
-            movies.Add(new Movies("Antman", "Action", "Paul Rudd", "Josh Whedan"));
-            */
-
             //Populating movie from file
             List<Movies> movies = new List<Movies>();
 
             //  path based on Location
             string path = Path.Combine(Environment.CurrentDirectory, @"..\..\nameFile.txt");
-
-            //Console.WriteLine(path); Console.ReadKey();
-
             string line;
             string[] tempMovie = new string[4];
 
@@ -53,16 +40,14 @@ namespace Final_Midterm
             string[] addMovie = new string[4];
 
             List<Movies> searchMovies = new List<Movies>();
-
             Boolean run = true;
 
             while(run)
             {
-                Console.WriteLine("\nWould you like to: \n[1] Display movie list \n[2] search movies \n[3] Add movie \n[4] Remove Movie \nExit");
+                Console.WriteLine("\nWould you like to: \n[1] Display Movie List \n[2] Search Movies \n[3] Add Movie \n[4] Remove Movie \nExit");
                 string directive = Console.ReadLine().ToLower();
 
                 // Implementing the Switch Case Statement
-
                 switch (directive)
                 {
                     case "1":
@@ -82,7 +67,6 @@ namespace Final_Midterm
                                 {
                                     Console.WriteLine(m);
                                 }
-
                                 break;
 
                             case "GENRE":
@@ -133,9 +117,7 @@ namespace Final_Midterm
                     case "EXIT":
                         run = false;
                         break;
-                    
                 }
-                
                 if (directive == "exit")
                     run = false;
             }
@@ -145,6 +127,7 @@ namespace Final_Midterm
                 sw.WriteLine("{0},{1},{2},{3}", m.MovieName, m.Genre, m.Actor, m.Director);
             }
             //Close the file
+            Console.WriteLine("File Saved");
             sw.Close();
 
             Console.ReadKey(); 

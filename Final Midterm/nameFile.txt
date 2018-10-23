@@ -1,5 +1,6 @@
-Titanic, Romance, Leo DiCaprio, James Cameron
-Smallfoot, Comedy, Yetie, IDK
-Avatar, Action, Blank, James Cameron
-Avengers, Action, Robert Downery Jr, Josh Whedon
-Antman, Action, Paul Rudd, Josh Whedan
+TITANIC, ROMANCE, LEO DICAPRIO, JAMES CAMERON
+SMALLFOOT, COMEDY, YETIE, IDK
+AVATAR, ACTION, BLANK, JAMES CAMERON
+AVENGERS, ACTION, ROBERT DOWNERY JR, JOSH WHEDON
+ANTMAN, ACTION, PAUL RUDD, JOSH WHEDON
+MOVIE TITLE, SOME GENRE, AN ACTOR, DIRECTOR
